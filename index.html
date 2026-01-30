@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous - Coffée de Qualité</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+        :root {
+            --primary-color: #6F4E37;
+            --secondary-color: #C4A57B;
+            --accent-color: #D2691E;
+            --text-dark: #2C1810;
+            --text-light: #FFFFFF;
+            --bg-light: #FFF8F3;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #FFF8F3 0%, #F5E6D3 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        header .navbar {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            justify-content: space-between;
+        }
+        .navbar .logo {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: "Dancing Script", cursive;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .navbar .logo:hover {
+            transform: scale(1.05);
+        }
+        .navbar .menu-link {
+            display: flex;
+            gap: 40px;
+            list-style-type: none;
+            align-items: center;
+        }
+        .navbar a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        .navbar a:hover {
+            color: var(--accent-color);
+        }
+        #menu{
+            color: var(--primary-color);
+            cursor: pointer;
+            display: none;
+            font-size: 2rem;
+        }
+        #close-menu{
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 2rem;
+        }
+        .contact-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .contact-section h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 50px;
+            font-family: "Dancing Script", cursive;
+            position: relative;
+        }
+        .contact-section h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 40px 60px;
+            box-shadow: var(--shadow-hover);
+            margin: 0 auto;
+            animation: fadeIn 0.6s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container .content {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .container .content .left-side {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .content .left-side .details {
+            padding: 25px;
+            text-align: center;
+            background: var(--bg-light);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .content .left-side .details:hover {
+            transform: translateY(-5px);
+        }
+        .content .left-side .details i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .content .left-side .details .topic {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .content .left-side .details .text-one,
+        .content .left-side .details .text-two {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .container .content .right-side {
+            width: 65%;
+        }
+        .content .right-side .topic-text {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-family: "Dancing Script", cursive;
+        }
+        .right-side .input-box {
+            margin-bottom: 25px;
+        }
+        .right-side .input-box input,
+        .right-side .input-box textarea {
+            width: 100%;
+            border: 2px solid #e0e0e0;
+            outline: none;
+            font-size: 16px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 15px 20px;
+            resize: none;
+            transition: all 0.3s ease;
+        }
+        .right-side .input-box input:focus,
+        .right-side .input-box textarea:focus {
+            border-color: var(--primary-color);
+            background: white;
+        }
+        .right-side .message-box {
+            min-height: 120px;
+        }
+        .right-side .button {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .right-side .button input[type="button"] {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            outline: none;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
+        }
+        .right-side .button input[type="button"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4);
+        }
+
+        @media (max-width: 950px) {
+            .container {
+                width: 90%;
+                padding: 30px 40px;
+            }
+            .container .content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .container .content .left-side {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .container .content .right-side {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            header{
+                padding: 10px 20px;
+            }
+            header.show-mobile-menu::before{
+                content: "";
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(5px);
+            }
+            #close-menu , #menu{
+                display: block;
+            }
+            .navbar .menu-link{
+                position: fixed;
+                top: 0;
+                left: -260px;
+                flex-direction: column;
+                width: 260px;
+                height: 100vh;
+                background-color: #fff;
+                padding: 70px 40px 0;
+                transition: left 0.15s ease ;
+            }
+            header.show-mobile-menu .navbar .menu-link{
+                left: 0;
+            }
+            .navbar a{
+                color: #000000;
+            }
+            .contact-section h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            .container .content .left-side {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+  </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="acceuil.html" class="logo">Coffée de Qualité</a>
+            <ul class="menu-link">
+                <span id="close-menu" class="material-symbols-outlined">close</span>
+                <li><a href="acceuil.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="panier.html">Cart</a></li>
+                <li><a href="index.html">Contact</a></li>
+            </ul>
+            <span id="menu" class="material-symbols-outlined">menu</span>
+        </nav>
+    </header>
+    
+    <section class="contact-section">
+        <h1>Contact Us</h1>
+        <div class="container">
+            <div class="content">
+                <div class="left-side">
+                    <div class="address details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="topic">Address</div>
+                        <div class="text-one">Tetouan, NP12</div>
+                        <div class="text-two">Morocco</div>
+                    </div>
+                    <div class="phone details">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="topic">Phone</div>
+                        <div class="text-one">+212 00-00000000</div>
+                        <div class="text-two">Mon-Fri: 9am-6pm</div>
+                    </div>
+                    <div class="email details">
+                        <i class="fas fa-envelope"></i>
+                        <div class="topic">Email</div>
+                        <div class="text-one">sarra.ouladbenhamdi@gmail.com</div>
+                        <div class="text-two">24/7 Support</div>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="topic-text">Send us a message</div>
+                    <form id="contactForm">
+                        <div class="input-box">
+                            <input type="text" placeholder="Enter your name" required />
+                        </div>
+                        <div class="input-box">
+                            <input type="email" placeholder="Enter your email" required />
+                        </div>
+                        <div class="input-box message-box">
+                            <textarea placeholder="Enter your message" required></textarea>
+                        </div>
+                        <div class="button">
+                            <input type="button" value="Send Now" onclick="sendMessage()" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+    <script>
+        // Mobile menu functionality
+        const header = document.querySelector("header");
+        const menu = document.querySelector("#menu");
+        const closeMenu = document.querySelector("#close-menu");
+
+        menu.addEventListener("click", () => {
+            header.classList.toggle("show-mobile-menu");
+        });
+        closeMenu.addEventListener("click", () => {
+            menu.click();
+        });
+
+        // Contact form functionality
+        function sendMessage() {
+            const form = document.getElementById('contactForm');
+            const name = form.querySelector('input[type="text"]').value;
+            const email = form.querySelector('input[type="email"]').value;
+            const message = form.querySelector('textarea').value;
+
+            if (!name || !email || !message) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+
+            // Show success message
+            showNotification('Message sent successfully! We will get back to you shortly.');
+            
+            // Reset form
+            form.reset();
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: var(--shadow-hover);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

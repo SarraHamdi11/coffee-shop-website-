@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-attachment: fixed;
+            background: linear-gradient(rgba(0,0,0,0.7),#341f1fb5),url(image/coffe.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+        }
+
+        header .navbar {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+
+        .navbar .logo {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: "Dancing Script", cursive;
+        }
+
+        .navbar .menu-link {
+            display: flex;
+            gap: 40px;
+            list-style-type: none;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .navbar a:hover {
+            color: rgb(76, 39, 5);
+        }
+
+        #menu {
+            color: #fff;
+            cursor: pointer;
+            display: none;
+        }
+
+        #close-menu {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 700px) {
+            header {
+                padding: 10px 20px;
+            }
+            header.show-mobile-menu::before {
+                content: "";
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(5px);
+            }
+            #close-menu, #menu {
+                display: block;
+            }
+            .navbar .menu-link {
+                position: fixed;
+                top: 0;
+                left: -260px;
+                flex-direction: column;
+                width: 260px;
+                height: 100vh;
+                background-color: #fff;
+                padding: 70px 40px 0;
+                transition: left 0.15s ease;
+            }
+            header.show-mobile-menu .navbar .menu-link {
+                left: 0;
+            }
+            .navbar a {
+                color: #000000;
+            }
+        }
+
+        .contact-container {
+            margin: 50px auto; /* Centrer le formulaire */
+            width: 90%; /* Largeur maximale pour la réactivité */
+            max-width: 700px; /* Largeur maximale fixe */
+            border-radius: 2rem;
+            padding: 25px 40px 10px 40px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #333;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container form {
+            padding: 30px 0 0 0;
+        }
+
+        .container form .form-row {
+            display: flex;
+            flex-wrap: wrap; /* Permettre le retour à la ligne des éléments du formulaire */
+            margin: 32px 0;
+        }
+
+        form .form-row .inputBox {
+            width: calc(50% - 20px); /* Deux colonnes pour les champs */
+            margin: 0 10px;
+        }
+
+        .inputBox input,
+        .textarea textarea {
+            height: 40px;
+            width: 100%;
+            border: none;
+            font-size: 1rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            outline: none;
+        }
+
+        .textarea textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .inputBox label {
+            position: absolute;
+            bottom: 25px;
+            font-size: 1rem;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            left: 15px;
+        }
+
+        .inputBox .underline {
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            width: calc(100% - 30px);
+            background-color: rgba(0, 0, 0, 0.5);
+            left: 15px;
+        }
+
+        .inputBox .underline::before,
+        .inputBox .underline::after {
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: 100%;
+            background: rgb(88, 29, 59);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        .inputBox input:focus ~ .underline::before,
+        .inputBox input:valid ~ .underline::before,
+        .textarea textarea:focus ~ .underline::before,
+        .textarea textarea:valid ~ .underline::before {
+            transform: scaleX(1);
+        }
+
+        .submit-btn {
+            width: 100% !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .submit-btn .inputBox {
+            width: 50%;
+        }
+
+        .submit-btn .inputBox input {
+            cursor: pointer;
+            height: 3rem;
+            background-color: #964646;
+            color: #fff;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn .inputBox input:hover {
+            background-color: #7a2e2e;
+        }
+
+        @media screen and (max-width: 768px) {
+            .contact-container {
+                width: 90%;
+            }
+
+            form .form-row .inputBox {
+                width: calc(100% - 20px);
+                margin: 0 10px;
+            }
+
+            .submit-btn .inputBox {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="acceuil.html" class="logo"> Coffée de Qualité </a>
+            <ul class="menu-link">
+                <span id="close-menu" class="material-symbols-outlined">close</span>
+                <li><a href="acceuil.html"> acceuil</a></li>
+                <li><a href="menu.html">menu</a></li>
+                <li><a href="panier.html">panier</a></li>
+                <li><a href="contactus.html">contact nous</a></li>
+            </ul>
+            <span id="menu" class="material-symbols-outlined">menu</span>
+        </nav>
+    </header>
+    <section id="contactMe">
+        <div class="contact-container">
+          <div class="container ">
+            <h2>Contact Us</h2>
+            <form action="#">
+              <div class="form-row">
+                <div class="inputBox">
+                  <input type="text" name=" " required />
+                  <div class="underline"></div>
+                  <label class="text">First Name</label>
+                </div>
+                <div class="inputBox">
+                  <input type="text" name=" " required />
+                  <div class="underline"></div>
+                  <label class="text">Last Name</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="inputBox">
+                  <input type="text" name="" required />
+                  <div class="underline"></div>
+                  <label class="text">Email</label>
+                </div>
+                <div class="inputBox">
+                  <input type="text" name=" " required />
+                  <div class="underline"></div>
+                  <label class="text">Mobile No.</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="inputBox textarea">
+                  <textarea required="required"></textarea>
+                  <div class="underline"></div>
+                  <label class="text">Type your message here</label>
+                </div>
+              </div>
+              <div class="form-row submit-btn">
+                <div class="inputBox">
+                  <div class="inner">
+                    <input type="submit" value="submit" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    <script>
+
+        const header = document.querySelector("header");
+        const menu = document.querySelector("#menu");
+        const closeMenu = document.querySelector("#close-menu");
+
+        menu.addEventListener("click", () => {
+            header.classList.toggle("show-mobile-menu");
+        });
+        closeMenu.addEventListener("click", () => {
+            menu.click();
+        })
+    </script>
+</body>
+</html>
